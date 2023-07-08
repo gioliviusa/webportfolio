@@ -395,7 +395,16 @@ display: inline-flex;
 
 /* gameover */
 
+/* 1githubonline */
 
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+/* gamover */
 
 
 
