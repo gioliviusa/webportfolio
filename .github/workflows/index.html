@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Futuristic Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="firefly.css">
+  <link rel="stylesheet" href="typeani.css">
+ 
+
+</head>
+<body>
+
+<!--update from here07/07/23-->
+
+<div id="particle-container"></div>
+<div id="sparkle-container"></div>
+<script type="text/javascript" src="scripts.js"></script>
+<!--end update from here-->
+
+<!--update from here07/07/23 fireflys-->
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+<div class="firefly"></div>
+
+<!-- <link rel="stylesheet" href="firefly.css"> -->
+<!--update from here07/07/23-->
+
+
+<!--update from here07/07/23 -->
+
+
+
+<!--update from here07/07/23-->
+
+
+
+
+
+  
+    <header class="header">
+      <div class="header-left">
+        <img src="logo.png" alt="Website Logo">
+        <h1>Welcome </h1>
+      </div>
+
+
+      <nav class="nav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+  </header>
+
+  
+
+
+
+
+
+  <main>
+  
+   <aside>
+   
+
+   
+    <div class="project">
+      <img class="project-image" src="project1.jpg" alt="Project 1">
+      <div>
+        <h3>Project 1</h3>
+        <p class="project-description">A brief description of Project 1.</p>
+        <a href="#" class="cta-button">View Project</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img class="project-image" src="project2.jpg" alt="Project 2">
+      <div>
+        <h3>Project 2</h3>
+        <p class="project-description">A brief description of Project 2.</p>
+        <a href="#" class="cta-button">View Project</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img class="project-image" src="project3.jpg" alt="Project 3">
+      <div>
+        <h3>Project 3</h3>
+        <p class="project-description">A brief description of Project 3.</p>
+        <a href="#" class="cta-button">View Project</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <img class="project-image" src="project4.jpg" alt="Project 4">
+      <div>
+        <h3>Project 4</h3>
+        <p class="project-description">A brief description of Project 4.</p>
+        <a href="#" class="cta-button">View Project</a>
+      </div>
+    </div>
+ 
+  </aside>
+ 
+ 
+  <!-- adding the typing animation -->
+
+  <div class="container1">
+    <div id="typing-effect"></div>
+
+  </div>
+  
+<!-- typing animation -->
+   
+<!-- adding the game -->
+
+<div class="containergame">
+  <div class="screen active" id="step1">
+    <h2>Step 1: Select a number</h2>
+    <div class="grid-container" id="gridContainer"></div>
+    <button onclick="goToStep(2)">Next</button>
+  </div>
+
+  <div class="screen" id="step2">
+    <h2>Step 2: Select bet amount</h2>
+    <input type="number" id="betAmountInput">
+    <button onclick="selectBetAmount()">Next</button>
+  </div>
+
+  <div class="screen" id="step3">
+    <h2>Step 3: Spin the wheel</h2>
+    <button onclick="goToStep(4)">Spin</button>
+    <div id="loadingText"></div>
+  </div>
+
+  <div class="screen" id="step4">
+    <h2>Step 4: Result</h2>
+    <div id="resultText"></div>
+    <button id="restartButton">Restart</button>
+  </div>
+</div>
+
+  
+
+
+<!-- game over -->
+
+
+
+
+
+
+
+
+
+
+  </main>
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<!--  
+  <footer class="footer">
+    <p>&copy; 2023 Your Website. All rights reserved.</p>
+    <ul>
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#terms">Terms of Service</a></li>
+      <li><a href="#sitemap">Sitemap</a></li>
+    </ul>
+  </footer> -->
+
+  <!-- <footer class="footer-48201">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-4 pr-md-5">
+    <a href="#" class="footer-site-logo d-block mb-4">Colorlib</a>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.</p>
+    </div>
+    <div class="col-md">
+    <ul class="list-unstyled nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+    </ul>
+    </div>
+    <div class="col-md">
+    <ul class="list-unstyled nav-links">
+    <li><a href="#">Clients</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Career</a></li>
+    <li><a href="#">Testimonials</a></li>
+    <li><a href="#">Journal</a></li>
+    </ul>
+    </div>
+    <div class="col-md">
+    <ul class="list-unstyled nav-links">
+    <li><a href="#">Privacy Policy</a></li>
+    <li><a href="#">Terms &amp; Conditions</a></li>
+    <li><a href="#">Partners</a></li>
+    </ul>
+    </div>
+    <div class="col-md text-md-center">
+    <ul class="social list-unstyled">
+    <li><a href="#"><span class="icon-instagram"></span></a></li>
+    <li><a href="#"><span class="icon-twitter"></span></a></li>
+    <li><a href="#"><span class="icon-facebook"></span></a></li>
+    <li><a href="#"><span class="icon-pinterest"></span></a></li>
+    <li><a href="#"><span class="icon-dribbble"></span></a></li>
+    </ul>
+    <p class=""><a href="#" class="btn btn-tertiary">Contact Us</a></p>
+    </div>
+    </div>
+    <div class="row ">
+    <div class="col-12 text-center">
+    <div class="copyright mt-5 pt-5">
+    <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+    </div>
+    </div>
+    </div>
+    </div>
+    </footer> -->
+
+
+    <footer class="footer-48201">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <a href="#" class="footer-site-logo d-block mb-4">Gio's portfolio</a>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.</p>
+          </div>
+          <div class="col-md-2">
+            <ul class="list-unstyled nav-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="list-unstyled nav-links">
+              <li><a href="#">Clients</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Testimonials</a></li>
+              <li><a href="#">Journal</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <ul class="list-unstyled nav-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms &amp; Conditions</a></li>
+              <li><a href="#">Partners</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 text-md-center">
+            <ul class="social list-unstyled">
+              <li><a href="#"><span class="icon-instagram"></span></a></li>
+              <li><a href="#"><span class="icon-twitter"></span></a></li>
+              <li><a href="#"><span class="icon-facebook"></span></a></li>
+              <li><a href="#"><span class="icon-pinterest"></span></a></li>
+              <li><a href="#"><span class="icon-dribbble"></span></a></li>
+            </ul>
+            <p class=""><a href="#" class="btn btn-tertiary">Contact Us</a></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <div class="mt-5 pt-5">
+              <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+
+
+
+
+
+</body>
+</html>
