@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat ;
   background-position: center ;
+  background-attachment: fixed;
 }
 
 
@@ -20,7 +21,7 @@ body {
   
 }
 header{
-  /* background-color: rgb(130, 130, 221); */
+  background-color: rgb(130, 130, 221);
   height: 118px;
   text-align: center;
 
