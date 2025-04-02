@@ -1,313 +1,1037 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Futuristic Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="firefly.css">
-  <link rel="stylesheet" href="typeani.css">
- 
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni | Blockchain & Web Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f7ff;
+            --secondary: #ff00e4;
+            --dark: #0a0a14;
+            --light: #f0f0f0;
+            --accent: #7700ff;
+            --glow: 0 0 10px rgba(0, 247, 255, 0.7);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            background-color: rgba(10, 10, 20, 0.9);
+            box-shadow: var(--glow);
+            padding: 10px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 247, 255, 0.1) 0%, rgba(10, 10, 20, 0.9) 70%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(0, 247, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(0, 247, 255, 0.8), 0 0 30px rgba(255, 0, 228, 0.5);
+            }
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .hero .highlight {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.4);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(-50%) translateX(0);
+            }
+            50% {
+                transform: translateY(-50%) translateX(20px);
+            }
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: rgba(10, 10, 20, 0.7);
+            position: relative;
+        }
+        
+        .projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMxMTExMTkiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: rgba(20, 20, 30, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.3);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 247, 255, 0.1), rgba(10, 10, 20, 0.7));
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tags span {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            padding: 8px 15px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .project-links .live-demo {
+            background: var(--primary);
+            color: var(--dark);
+        }
+        
+        .project-links .view-code {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+        
+        .project-links a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 247, 255, 0.3);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, rgba(10, 10, 20, 0.7), var(--dark));
+            position: relative;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: var(--glow);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            top: 20px;
+            left: 20px;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skills h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-item {
+            padding: 8px 15px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--dark), rgba(10, 10, 20, 0.9));
+            position: relative;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(20, 20, 30, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 5px;
+            color: var(--light);
+            font-family: 'Roboto', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: var(--glow);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: var(--dark);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.3);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 247, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 20, 0.9);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 247, 255, 0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 247, 255, 0.1);
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            border-radius: 50%;
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: rgba(10, 10, 20, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+        
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-image {
+                opacity: 0.3;
+                right: -50%;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!--update from here07/07/23-->
-
-<div id="particle-container"></div>
-<div id="sparkle-container"></div>
-<script type="text/javascript" src="scripts.js"></script>
-<!--end update from here-->
-
-<!--update from here07/07/23 fireflys-->
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-<div class="firefly"></div>
-
-<!-- <link rel="stylesheet" href="firefly.css"> -->
-<!--update from here07/07/23-->
-
-
-<!--update from here07/07/23 -->
-
-
-
-<!--update from here07/07/23-->
-
-
-
-
-
-  
-    <header class="header">
-      <div class="header-left">
-        <img src="logo.png" alt="Website Logo">
-        <h1>Welcome </h1>
-      </div>
-
-
-      <nav class="nav">
-        <ul>
-          
-          <li><a href="index.html">Home</a></li>
-          <li><a href="https://gioliviusa.github.io/webportfolio/restaurant">Restaurant</a></li>
-          
-          <li><a href="/Project2/index.html"> Bike Services</a></li>
-          <li><a href="/Project3/index.html">Portfolio</a></li>
-          
-        </ul>
-      </nav>
-  </header>
-
-  
-
-
-
-
-
-  <main>
-  
-   <aside>
-   
-
-   
-    <div class="project">
-      <img class="project-image" src="project1.jpg" alt="Project 1">
-      <div>
-        <h3>Project 1</h3>
-        <p class="project-description">A brief description of Project 1.</p>
-        <a href="#" class="cta-button">View Project</a>
-      </div>
-    </div>
-
-    <div class="project">
-      <img class="project-image" src="project2.jpg" alt="Project 2">
-      <div>
-        <h3>Project 2</h3>
-        <p class="project-description">A brief description of Project 2.</p>
-        <a href="#" class="cta-button">View Project</a>
-      </div>
-    </div>
-
-    <div class="project">
-      <img class="project-image" src="project3.jpg" alt="Project 3">
-      <div>
-        <h3>Project 3</h3>
-        <p class="project-description">A brief description of Project 3.</p>
-        <a href="#" class="cta-button">View Project</a>
-      </div>
-    </div>
-
-    <div class="project">
-      <img class="project-image" src="project4.jpg" alt="Project 4">
-      <div>
-        <h3>Project 4</h3>
-        <p class="project-description">A brief description of Project 4.</p>
-        <a href="#" class="cta-button">View Project</a>
-      </div>
-    </div>
- 
-  </aside>
- 
- 
-  <!-- adding the typing animation -->
-
-  <div class="container1">
-    <div id="typing-effect"></div>
-
-  </div>
-  
-<!-- typing animation -->
-   
-<!-- adding the game -->
-
-<!-- <div class="containergame">
-  <div class="screen active" id="step1">
-    <h2>Step 1: Select a number</h2>
-    <div class="grid-container" id="gridContainer"></div>
-    <button onclick="goToStep(2)">Next</button>
-  </div>
-
-  <div class="screen" id="step2">
-    <h2>Step 2: Select bet amount</h2>
-    <input type="number" id="betAmountInput">
-    <button onclick="selectBetAmount()">Next</button>
-  </div>
-
-  <div class="screen" id="step3">
-    <h2>Step 3: Spin the wheel</h2>
-    <button onclick="goToStep(4)">Spin</button>
-    <div id="loadingText"></div>
-  </div>
-
-  <div class="screen" id="step4">
-    <h2>Step 4: Result</h2>
-    <div id="resultText"></div>
-    <button id="restartButton">Restart</button>
-  </div>
-</div> -->
-
-  
-
-
-<!-- game over -->
-
-
-
-
-
-
-
-
-
-
-  </main>
- 
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<!--  
-  <footer class="footer">
-    <p>&copy; 2023 Your Website. All rights reserved.</p>
-    <ul>
-      <li><a href="#privacy">Privacy Policy</a></li>
-      <li><a href="#terms">Terms of Service</a></li>
-      <li><a href="#sitemap">Sitemap</a></li>
-    </ul>
-  </footer> -->
-
-  <!-- <footer class="footer-48201">
-    <div class="container">
-    <div class="row">
-    <div class="col-md-4 pr-md-5">
-    <a href="#" class="footer-site-logo d-block mb-4">Colorlib</a>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.</p>
-    </div>
-    <div class="col-md">
-    <ul class="list-unstyled nav-links">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Portfolio</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    </ul>
-    </div>
-    <div class="col-md">
-    <ul class="list-unstyled nav-links">
-    <li><a href="#">Clients</a></li>
-    <li><a href="#">Team</a></li>
-    <li><a href="#">Career</a></li>
-    <li><a href="#">Testimonials</a></li>
-    <li><a href="#">Journal</a></li>
-    </ul>
-    </div>
-    <div class="col-md">
-    <ul class="list-unstyled nav-links">
-    <li><a href="#">Privacy Policy</a></li>
-    <li><a href="#">Terms &amp; Conditions</a></li>
-    <li><a href="#">Partners</a></li>
-    </ul>
-    </div>
-    <div class="col-md text-md-center">
-    <ul class="social list-unstyled">
-    <li><a href="#"><span class="icon-instagram"></span></a></li>
-    <li><a href="#"><span class="icon-twitter"></span></a></li>
-    <li><a href="#"><span class="icon-facebook"></span></a></li>
-    <li><a href="#"><span class="icon-pinterest"></span></a></li>
-    <li><a href="#"><span class="icon-dribbble"></span></a></li>
-    </ul>
-    <p class=""><a href="#" class="btn btn-tertiary">Contact Us</a></p>
-    </div>
-    </div>
-    <div class="row ">
-    <div class="col-12 text-center">
-    <div class="copyright mt-5 pt-5">
-    <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
-    </div>
-    </div>
-    </div>
-    </div>
-    </footer> -->
-
-
-    <footer class="footer-48201">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <a href="#" class="footer-site-logo d-block mb-4">Gio's portfolio</a>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi quasi perferendis ratione perspiciatis accusantium.</p>
-          </div>
-          <div class="col-md-2">
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2">
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Clients</a></li>
-              <li><a href="#">Team</a></li>
-              <li><a href="#">Career</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Journal</a></li>
-            </ul>
-          </div>
-          <div class="col-md-2">
-            <ul class="list-unstyled nav-links">
-              <li><a href="#">Privacy Policy</a></li>
-              <li><a href="#">Terms &amp; Conditions</a></li>
-              <li><a href="#">Partners</a></li>
-            </ul>
-          </div>
-          <div class="col-md-3 text-md-center">
-            <ul class="social list-unstyled">
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-              <li><a href="#"><span class="icon-pinterest"></span></a></li>
-              <li><a href="#"><span class="icon-dribbble"></span></a></li>
-            </ul>
-            <p class=""><a href="#" class="btn btn-tertiary">Contact Us</a></p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 text-center">
-            <div class="mt-5 pt-5">
-              <p><small>&copy; 2019-2020 All Rights Reserved.</small></p>
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo"><i class="fas fa-code"></i>Giovanni<span>Dev</span></a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
             </div>
-          </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Giovanni's Digital Frontier</h1>
+                <p>Self-taught coding enthusiast specializing in <span class="highlight">front-end development</span> and <span class="highlight">blockchain technology</span>. I build immersive web experiences and smart contracts that push boundaries.</p>
+                <a href="#projects" class="btn">Explore My Work</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Futuristic Interface">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 - Web3 Dashboard -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Web3 Dashboard">
+                    </div>
+                    <div class="project-info">
+                        <h3>Web3 Portfolio Tracker IAN</h3>
+                        <p>A dashboard for tracking cryptocurrency portfolios across multiple chains with real-time price data and transaction history.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Ethers.js</span>
+                            <span>Solidity</span>
+                            <span>Web3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.ian.finance/" class="live-demo">Live Demo</a>
+                            <a href="https://github.com/gioliviusa/IAN" class="view-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 - NFT Marketplace -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="NFT Marketplace">
+                    </div>
+                    <div class="project-info">
+                        <h3>Restaurant asian fusion </h3>
+                        <p>A decentralized platform for minting and trading NFTs with custom royalty structures and gas optimization.</p>
+                        <div class="project-tags">
+                            <span>html5</span>
+                            <span>CSS</span>
+                            <span>Javascript</span>
+                            <span></span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://codepen.io/gioliviusa/live/RNwEQgx" class="live-demo">Live Demo</a>
+                            <a href="#" class="view-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 - DeFi Protocol -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="DeFi Protocol">
+                    </div>
+                    <div class="project-info">
+                        <h3>Yield Farming DApp</h3>
+                        <p>A decentralized finance application offering yield farming strategies with automated smart contract execution.</p>
+                        <div class="project-tags">
+                            <span>Vue.js</span>
+                            <span>Solidity</span>
+                            <span>Chainlink</span>
+                            <span>Web3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="live-demo">Live Demo</a>
+                            <a href="#" class="view-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 - Interactive Web App -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Interactive Web App">
+                    </div>
+                    <div class="project-info">
+                        <h3>3D Portfolio Viewer</h3>
+                        <p>An interactive 3D environment showcasing creative projects with WebGL and Three.js animations.</p>
+                        <div class="project-tags">
+                            <span>Three.js</span>
+                            <span>GSAP</span>
+                            <span>JavaScript</span>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="live-demo">Live Demo</a>
+                            <a href="#" class="view-code">View Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Giovanni Portrait">
+                </div>
+                <div class="about-text">
+                    <h2>Self-Taught Developer & Blockchain Enthusiast</h2>
+                    <p>Hello! I'm Giovanni, a passionate self-taught developer with expertise in front-end technologies and blockchain development. My journey in coding began as a hobby and has evolved into a full-fledged passion for building decentralized applications.</p>
+                    <p>I specialize in creating responsive, interactive web interfaces and writing secure, efficient smart contracts. My self-directed learning approach has given me the ability to quickly adapt to new technologies and solve complex problems.</p>
+                    <div class="skills">
+                        <h3>Technical Skills</h3>
+                        <div class="skills-list">
+                            <span class="skill-item">HTML5</span>
+                            <span class="skill-item">CSS3</span>
+                            <span class="skill-item">JavaScript</span>
+                            <span class="skill-item">React</span>
+                            <span class="skill-item">Vue.js</span>
+                            <span class="skill-item">Solidity</span>
+                            <span class="skill-item">Ethers.js</span>
+                            <span class="skill-item">Web3.js</span>
+                            <span class="skill-item">Hardhat</span>
+                            <span class="skill-item">Three.js</span>
+                            <span class="skill-item">Git</span>
+                            <span class="skill-item">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/gioliviusa/webportfolio"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-ethereum"></i></a>
+                <a href="https://codepen.io/gioliviusa/pen/raNoNwY"><i class="fab fa-codepen"></i></a>
+            </div>
+            <p class="copyright">© 2025 Giovanni. All rights reserved. Built with passion and coffee.</p>
+        </div>
     </footer>
     
-
-
-
-
-
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuToggle.innerHTML = nav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Particle background
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 50;
+        
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+            
+            // Random size between 1px and 3px
+            const size = Math.random() * 2 + 1;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            
+            // Random position
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${Math.random() * 100}%`;
+            
+            // Random opacity
+            particle.style.opacity = Math.random() * 0.5 + 0.1;
+            
+            // Random animation
+            const duration = Math.random() * 20 + 10;
+            const delay = Math.random() * 5;
+            particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+            
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Form submission
+        const contactForm = document.querySelector('.contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show an alert
+            alert('Thank you for your message, Giovanni will get back to you soon!');
+            contactForm.reset();
+        });
+        
+        // Project card hover effect enhancement
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) translateY(-10px)`;
+                card.style.boxShadow = `${angleY * 2}px ${angleX * 2}px 30px rgba(0, 247, 255, 0.3)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 15px 30px rgba(0, 247, 255, 0.2)';
+            });
+        });
+        
+        // Typewriter effect for hero text
+        const heroTitle = document.querySelector('.hero h1');
+        const originalText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        // Start typing effect after a short delay
+        setTimeout(typeWriter, 500);
+    </script>
 </body>
 </html>
