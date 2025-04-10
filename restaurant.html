@@ -25,7 +25,40 @@
             padding: 0;
             box-sizing: border-box;
         }
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
 
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+}
+
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding-top: 20vh;
+}
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--text);
@@ -1007,6 +1040,28 @@
     </div>
 
     <!-- Hero Section -->
+   <!-- Hero Section with YouTube Background Video -->
+<section class="hero">
+  <div class="video-background">
+    <iframe 
+      src="https://www.youtube.com/embed/VCJFkNIRV68?autoplay=1&loop=1&mute=1&controls=0&playlist=VCJFkNIRV68" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media" 
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="hero-content">
+    <h1>Your compelling headline here</h1>
+    <p>Your engaging subtitle text goes here</p>
+    <a href="#cta" class="cta-button">Call to Action</a>
+  </div>
+</section>
+
+
+
+
+
+    
     <section class="hero" id="home">
         <video autoplay muted loop playsinline class="hero-video">
             <!-- You can replace this with your actual video file -->
