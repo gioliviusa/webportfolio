@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
         :root {
             --primary: #c1121f;
@@ -59,6 +60,87 @@
   color: white;
   padding-top: 20vh;
 }
+
+/* Mobile-first CSS */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 20vh 5% 0;
+}
+
+/* Desktop enhancements */
+@media (min-width: 768px) {
+  .video-container iframe {
+    width: 100vw;
+    height: 56.25vw; /* 16:9 aspect ratio */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 16:9 aspect ratio */
+  }
+  
+  .hero-content {
+    padding-top: 30vh;
+  }
+}
+
+/* Mobile landscape adjustment */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero-content {
+    padding-top: 10vh;
+  }
+}
+
+/* Optional: Add backdrop for better text contrast */
+.hero-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+        
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--text);
@@ -1063,12 +1145,15 @@
 
     
     <section class="hero" id="home">
-        <video autoplay muted loop playsinline class="hero-video">
-            <!-- You can replace this with your actual video file -->
-            <source src="https://youtu.be/VCJFkNIRV68" type="video/mp4">
-            <!-- Fallback image if video doesn't load -->
-            <img src="https://vitoloitalian.com/wp-content/uploads/2023/04/hero-1.jpg" alt="Vitolo Italian Restaurant">
-        </video>
+        <section class="hero">
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/VCJFkNIRV68?autoplay=1&loop=1&mute=1&controls=0&playsinline=1&playlist=VCJFkNIRV68" 
+      frameborder="0" 
+      allow="autoplay; encrypted-media; accelerometer; gyroscope; picture-in-picture" 
+      allowfullscreen
+    ></iframe>
+  </div>
         <div class="container">
             <div class="hero-content">
                 <h1>Authentic Italian Cuisine in Fort Lauderdale Beach</h1>
